@@ -15,12 +15,29 @@ const PostLink = props => (
 class Index extends Component {
   constructor(props) {
     super(props);
+    this.state = {};
+  }
+  componentDidMount(){
+
+    const getShowsData = async () => {
+      const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
+      const data = await res.json();
+    
+      console.log(`Show data fetched. Count: ${data.length}`);
+    
+      return this.setState({
+        shows: data.map(entry => entry.show)
+      });
+    };
+
+    getShowsData();
+
   }
   render() {
     return (<BaseLayout>
         <h1>Batman TV Shows</h1>
         <ul>
-          {this.props.shows ? this.props.shows.map(show => (
+          {this.state.shows ? this.state.shows.map(show => (
             <li key={show.id}>
               <PostLink id={show.id} title={show.name}/>
             </li>
@@ -28,17 +45,6 @@ class Index extends Component {
         </ul>
     </BaseLayout>);
   }
-};
-
-Index.getInitialProps = async function() {
-  const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
-  const data = await res.json();
-
-  console.log(`Show data fetched. Count: ${data.length}`);
-
-  return {
-    shows: data.map(entry => entry.show)
-  };
 };
 
 export default Index;
