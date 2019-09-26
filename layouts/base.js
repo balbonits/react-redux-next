@@ -1,16 +1,17 @@
 import Header from '../components/Header';
+import styled from 'styled-components';
 
-const layoutStyle = {
-  margin: 20,
-  padding: 20,
-  border: '1px solid #DDD'
-};
+const Wrapper = styled.div`
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #DDD;
+`;
 
 const BaseLayout = props => {
-  return (<div style={layoutStyle}>
+  return (<Wrapper>
       <Header />
       {props.children}
-    </div>);
+    </Wrapper>);
 };
 
 export default BaseLayout;

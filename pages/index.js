@@ -1,4 +1,5 @@
 // plugins
+import React, { Component } from 'react';
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
 
@@ -11,17 +12,22 @@ const PostLink = props => (
     </Link>
 );
 
-let Index = props => {
+class Index extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
     return (<BaseLayout>
         <h1>Batman TV Shows</h1>
         <ul>
-          {props.shows ? props.shows.map(show => (
+          {this.props.shows ? this.props.shows.map(show => (
             <li key={show.id}>
               <PostLink id={show.id} title={show.name}/>
             </li>
           )) : ''}
         </ul>
     </BaseLayout>);
+  }
 };
 
 Index.getInitialProps = async function() {
