@@ -25,6 +25,7 @@
     "next-redux-wrapper": "^4.0.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "styled-components": "^4.4.0"
   }
 }

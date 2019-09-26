@@ -1,6 +1,7 @@
 // plugins
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
+
 // layouts & components
 import BaseLayout from '../layouts/base';
 
