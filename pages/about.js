@@ -1,5 +1,7 @@
-import withBaseLayout from '../layouts/base';
+import BaseLayout from '../layouts/base';
 
-const Page = () => <p>This is the about page</p>;
+const Page = () => (<BaseLayout>
+    <p>This is the about page</p>;
+</BaseLayout>);
 
-export default withBaseLayout(Page);
+export default BaseLayout(Page);
